@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Estructurada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#faf3dd] text-gray-800">
+    
+    <!-- Header -->
+    <header class="bg-[#005f73] text-white py-6 px-4 text-center">
+        <h1 class="text-3xl font-bold">📌 Programación Estructurada</h1>
+        <p class="mt-2">Aprende los conceptos fundamentales con ejemplos y ejercicios interactivos.</p>
+    </header>
+    
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Conceptos Básicos -->
+        <section class="bg-[#e9d8a6] p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">🔹 Conceptos Básicos</h2>
+            <p class="mt-2">La programación estructurada es un paradigma de programación basado en la división del código en estructuras bien definidas. Los conceptos clave incluyen:</p>
+            <ul class="list-disc list-inside mt-2">
+                <li><b>Variables:</b> Espacios en la memoria que almacenan datos.</li>
+                <li><b>Condicionales:</b> Permiten ejecutar código en función de condiciones (if-else).</li>
+                <li><b>Bucles:</b> Permiten repetir un bloque de código (for, while).</li>
+                <li><b>Funciones:</b> Bloques de código reutilizables que realizan una tarea específica.</li>
+            </ul>
+        </section>
+        
+        <!-- Ejercicios Interactivos -->
+        <section class="bg-[#0a9396] text-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">📝 Ejercicios Interactivos</h2>
+            <p class="mt-2">Prueba tus conocimientos resolviendo estos ejercicios:</p>
+            
+            <div class="mt-4">
+                <p><b>Ejercicio 1:</b> Declara una variable llamada <code>x</code> y asígnale el valor 10.</p>
+                <textarea id="ejercicio1" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <button onclick="verificarEjercicio1()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
+                <p id="resultado1" class="mt-2"></p>
+            </div>
+            
+            <div class="mt-4">
+                <p><b>Ejercicio 2:</b> Escribe un condicional que imprima "Mayor de edad" si la variable <code>edad</code> es mayor o igual a 18.</p>
+                <textarea id="ejercicio2" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <button onclick="verificarEjercicio2()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
+                <p id="resultado2" class="mt-2"></p>
+            </div>
+        </section>
+        
+        <!-- Enlaces a Recursos -->
+        <section class="bg-[#ee9b00] text-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">📚 Recursos y Tutoriales</h2>
+            <ul class="list-disc list-inside mt-2">
+                <li><a href="https://www.youtube.com/watch?v=O89aX0WoFng" class="underline" target="_blank">Tutorial sobre Variables</a></li>
+                <li><a href="https://codelearn.es/blog/condicionales-bucles-variables-y-funciones/" class="underline" target="_blank">Curso de Condicionales y Bucles</a></li>
+                <li><a href="http://progra.usm.cl/apunte/materia/funciones.html" class="underline" target="_blank">Funciones en Programación</a></li>
+            </ul>
+        </section>
+        
+        <!-- Volver -->
+        <section class="text-center">
+            <a href="index.html" class="bg-[#005f73] text-white px-4 py-2 rounded-lg shadow-md">⬅ Volver a la Página Principal</a>
+        </section>
+        
+    </main>
+    
+    <script>
+        function verificarEjercicio1() {
+            let respuesta = document.getElementById("ejercicio1").value.trim();
+            if (respuesta.includes("x = 10")) {
+                document.getElementById("resultado1").innerText = "✅ Correcto!";
+                document.getElementById("resultado1").classList.add("text-green-500");
+            } else {
+                document.getElementById("resultado1").innerText = "❌ Inténtalo de nuevo.";
+                document.getElementById("resultado1").classList.add("text-red-500");
+            }
+        }
+        
+        function verificarEjercicio2() {
+            let respuesta = document.getElementById("ejercicio2").value.trim();
+            if (respuesta.includes("if") && respuesta.includes("edad >= 18") && respuesta.includes("console.log(\"Mayor de edad\")")) {
+                document.getElementById("resultado2").innerText = "✅ Correcto!";
+                document.getElementById("resultado2").classList.add("text-green-500");
+            } else {
+                document.getElementById("resultado2").innerText = "❌ Inténtalo de nuevo.";
+                document.getElementById("resultado2").classList.add("text-red-500");
+            }
+        }
+    </script>
+</body>
+</html>

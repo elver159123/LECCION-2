@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Orientada a Objetos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+    <script>
+        function verificarEjercicio1() {
+            let respuesta = document.getElementById('ejercicio1').value.trim();
+            let correcta = "class Persona { constructor(nombre) { this.nombre = nombre; } }";
+            document.getElementById('resultado1').innerText = respuesta.includes("class Persona") ? "✅ Correcto!" : "❌ Intenta de nuevo";
+        }
+        
+        function verificarEjercicio2() {
+            let respuesta = document.getElementById('ejercicio2').value.trim();
+            let correcta = "class Estudiante extends Persona { constructor(nombre, edad) { super(nombre); this.edad = edad; } }";
+            document.getElementById('resultado2').innerText = respuesta.includes("extends Persona") ? "✅ Correcto!" : "❌ Intenta de nuevo";
+        }
+    </script>
+</head>
+<body class="bg-[#faf3dd] text-gray-800">
+    
+    <!-- Header -->
+    <header class="bg-[#005f73] text-white py-6 px-4 text-center">
+        <h1 class="text-3xl font-bold">📌 Programación Orientada a Objetos (POO)</h1>
+        <p class="mt-2">Aprende los conceptos fundamentales con ejemplos y ejercicios interactivos.</p>
+    </header>
+    
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Conceptos Básicos -->
+        <section class="bg-[#e9d8a6] p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">🔹 Conceptos Básicos</h2>
+            <p class="mt-2">La programación orientada a objetos (POO) es un paradigma que estructura el código en base a objetos y clases. Algunos conceptos clave incluyen:</p>
+            <ul class="list-disc list-inside mt-2">
+                <li><b>Clases:</b> Plantillas para crear objetos.</li>
+                <li><b>Objetos:</b> Instancias de una clase con propiedades y métodos.</li>
+                <li><b>Herencia:</b> Permite que una clase herede propiedades y métodos de otra.</li>
+                <li><b>Encapsulación:</b> Restringe el acceso a ciertos datos dentro de un objeto.</li>
+                <li><b>Polimorfismo:</b> Permite que diferentes clases utilicen métodos con el mismo nombre de distintas maneras.</li>
+            </ul>
+        </section>
+        
+        <!-- Ejercicios Interactivos -->
+        <section class="bg-[#0a9396] text-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">📝 Ejercicios Interactivos</h2>
+            <p class="mt-2">Prueba tus conocimientos resolviendo estos ejercicios:</p>
+            <div class="mt-4">
+                <p><b>Ejercicio 1:</b> Crea una clase llamada <code>Persona</code> con un constructor que reciba un nombre.</p>
+                <textarea id="ejercicio1" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <button onclick="verificarEjercicio1()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
+                <p id="resultado1" class="mt-2"></p>
+            </div>
+            <div class="mt-4">
+                <p><b>Ejercicio 2:</b> Crea una clase llamada <code>Estudiante</code> que herede de <code>Persona</code> y agregue una propiedad de edad.</p>
+                <textarea id="ejercicio2" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <button onclick="verificarEjercicio2()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
+                <p id="resultado2" class="mt-2"></p>
+            </div>
+        </section>
+        
+        <!-- Enlaces a Recursos -->
+        <section class="bg-[#ee9b00] text-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold">📚 Recursos y Tutoriales</h2>
+            <ul class="list-disc list-inside mt-2">
+                <li><a href="https://www.edx.org/es/aprende/programacion-orientada-a-objetos" class="underline" target="_blank">Curso sobre Clases y Objetos</a></li>
+                <li><a href="https://www.youtube.com/watch?v=yZyigBseFLE" class="underline" target="_blank">Video POO para principiantes</a></li>
+                <li><a href="https://www.ibm.com/docs/es/spss-modeler/saas?topic=language-object-oriented-programming" class="underline" target="_blank">Conceptos de POO IBM</a></li>
+            </ul>
+        </section>
+        
+        <!-- Volver -->
+        <section class="text-center">
+            <a href="index.html" class="bg-[#005f73] text-white px-4 py-2 rounded-lg shadow-md">⬅ Volver a la Página Principal</a>
+        </section>
+        
+    </main>
+</body>
+</html>
