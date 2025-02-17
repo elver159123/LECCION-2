@@ -74,25 +74,45 @@
                 <p>Estamos disponibles para atender tus consultas de lunes a viernes de 9:00 a 18:00.</p>
             </div>
 
-            <!-- Dirección -->
-            <div class="mt-6">
-                <p><b>Dirección:</b>Quito - Ecuador</p>
-                <p>Visítanos para recibir asistencia presencial o consultar sobre nuestros cursos.</p>
-            </div>
+            <!-- Foro de Opiniones -->
+        <section class="bg-[#005f73] text-white p-6 rounded-lg shadow-md text-center w-full md:col-span-2">
+            <h2 class="text-2xl font-semibold">📝 Foro de Opiniones</h2>
+            <p class="mt-4">Comparte tu opinión sobre el curso y la programación en general.</p>
             
-            <!-- Redes Sociales -->
-            <div class="mt-6">
-                <p><b>Síguenos en nuestras redes sociales:</b></p>
-                <div class="mt-2 flex justify-center space-x-4">
-                    <a href="https://facebook.com/cursoonline" target="_blank" class="bg-white text-[#005f73] p-3 rounded-full shadow-md">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-6 h-6">
-                    </a>
-                    <a href="https://instagram.com/cursoonline" target="_blank" class="bg-white text-[#005f73] p-3 rounded-full shadow-md">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="w-6 h-6">
-                    </a>
+            <form id="foro-form" class="mt-6 text-gray-800">
+                <div class="mb-4">
+                    <label for="nombre" class="block text-white text-lg">Nombre:</label>
+                    <input type="text" id="nombre" class="w-full p-2 rounded-lg" required>
                 </div>
+                <div class="mb-4">
+                    <label for="comentario" class="block text-white text-lg">Comentario:</label>
+                    <textarea id="comentario" class="w-full p-2 rounded-lg" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="bg-white text-[#005f73] px-4 py-2 rounded-lg shadow-md">Enviar Comentario</button>
+            </form>
+            
+            <div id="comentarios" class="mt-6 text-left">
+                <h3 class="text-xl font-semibold text-white">Comentarios Recientes:</h3>
+                <ul id="lista-comentarios" class="mt-4 text-gray-100"></ul>
             </div>
-        </section>        
+        </section>
     </main>
+    
+    <script>
+        document.getElementById("foro-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let nombre = document.getElementById("nombre").value;
+            let comentario = document.getElementById("comentario").value;
+            if (nombre && comentario) {
+                let lista = document.getElementById("lista-comentarios");
+                let nuevoComentario = document.createElement("li");
+                nuevoComentario.classList.add("mt-2", "p-2", "bg-white", "text-gray-800", "rounded-lg");
+                nuevoComentario.innerHTML = `<strong>${nombre}:</strong> ${comentario}`;
+                lista.appendChild(nuevoComentario);
+                document.getElementById("foro-form").reset();
+            }
+        });
+    </script>
 </body>
 </html>
+

@@ -8,6 +8,15 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body { font-family: 'Poppins', sans-serif; }
+        .code-example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            color: #333;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
     <script>
         function verificarEjercicio1() {
@@ -36,14 +45,100 @@
         <!-- Conceptos Básicos -->
         <section class="bg-[#e9d8a6] p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold">🔹 Conceptos Básicos</h2>
-            <p class="mt-2">La programación orientada a objetos (POO) es un paradigma que estructura el código en base a objetos y clases. Algunos conceptos clave incluyen:</p>
+            <p class="mt-2">La programación orientada a objetos (POO) es un paradigma de programación que organiza el código en "objetos". Los objetos son instancias de "clases", y las clases son plantillas para crear objetos. A continuación, se describen los conceptos clave:</p>
             <ul class="list-disc list-inside mt-2">
-                <li><b>Clases:</b> Plantillas para crear objetos.</li>
-                <li><b>Objetos:</b> Instancias de una clase con propiedades y métodos.</li>
-                <li><b>Herencia:</b> Permite que una clase herede propiedades y métodos de otra.</li>
-                <li><b>Encapsulación:</b> Restringe el acceso a ciertos datos dentro de un objeto.</li>
-                <li><b>Polimorfismo:</b> Permite que diferentes clases utilicen métodos con el mismo nombre de distintas maneras.</li>
+                <li><b>Clases:</b> Son plantillas o moldes para crear objetos. Una clase define las propiedades (atributos) y los métodos (funciones) que sus objetos pueden tener. Ejemplo de clase <code>Persona</code>:</li>
             </ul>
+            <div class="code-example">
+                <code>
+class Persona {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+}
+                </code>
+            </div>
+            <p class="mt-4">En este ejemplo, <code>Persona</code> es una clase que tiene un constructor que inicializa la propiedad <code>nombre</code>.</p>
+
+            <ul class="list-disc list-inside mt-4">
+                <li><b>Objetos:</b> Son instancias de una clase. Los objetos tienen valores específicos para las propiedades definidas en la clase. Ejemplo:</li>
+            </ul>
+            <div class="code-example">
+                <code>
+let juan = new Persona("Juan");
+console.log(juan.nombre); // Salida: Juan
+                </code>
+            </div>
+            <p class="mt-4">Aquí, creamos un objeto <code>juan</code> a partir de la clase <code>Persona</code>, y asignamos el valor "Juan" a la propiedad <code>nombre</code>.</p>
+
+            <ul class="list-disc list-inside mt-4">
+                <li><b>Herencia:</b> La herencia permite que una clase herede propiedades y métodos de otra. Esto facilita la reutilización de código. Ejemplo de clase <code>Estudiante</code> que hereda de <code>Persona</code>:</li>
+            </ul>
+            <div class="code-example">
+                <code>
+class Estudiante extends Persona {
+    constructor(nombre, edad) {
+        super(nombre);
+        this.edad = edad;
+    }
+}
+                </code>
+            </div>
+            <p class="mt-4">En este ejemplo, la clase <code>Estudiante</code> extiende la clase <code>Persona</code> y agrega una nueva propiedad llamada <code>edad</code>. La palabra clave <code>super()</code> llama al constructor de la clase padre <code>Persona</code>.</p>
+
+            <ul class="list-disc list-inside mt-4">
+                <li><b>Encapsulación:</b> La encapsulación oculta la complejidad de los datos dentro de los objetos y expone solo lo necesario. Esto se logra mediante el uso de métodos públicos y privados. Ejemplo:</li>
+            </ul>
+            <div class="code-example">
+                <code>
+class Persona {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+    
+    // Método público
+    saludar() {
+        console.log("¡Hola, " + this.nombre + "!");
+    }
+    
+    // Método privado (simulado con convención)
+    #nombre;
+}
+                </code>
+            </div>
+            <p class="mt-4">En este ejemplo, el método <code>saludar()</code> es público y puede ser accedido por los objetos. El atributo <code>#nombre</code> es privado, lo que significa que no puede ser accedido directamente desde fuera de la clase (aunque en JavaScript se usa una convención con <code>#</code> para indicar atributos privados).</p>
+
+            <ul class="list-disc list-inside mt-4">
+                <li><b>Polimorfismo:</b> El polimorfismo permite que diferentes clases implementen el mismo método de manera distinta. Ejemplo:</li>
+            </ul>
+            <div class="code-example">
+                <code>
+class Animal {
+    hacerSonido() {
+        console.log("Hace un sonido");
+    }
+}
+
+class Perro extends Animal {
+    hacerSonido() {
+        console.log("¡Guau!");
+    }
+}
+
+class Gato extends Animal {
+    hacerSonido() {
+        console.log("¡Miau!");
+    }
+}
+
+let perro = new Perro();
+perro.hacerSonido(); // Salida: ¡Guau!
+
+let gato = new Gato();
+gato.hacerSonido(); // Salida: ¡Miau!
+                </code>
+            </div>
+            <p class="mt-4">En este ejemplo, la clase <code>Animal</code> tiene un método <code>hacerSonido()</code>, pero las clases hijas <code>Perro</code> y <code>Gato</code> lo implementan de manera diferente. Esto es un ejemplo de polimorfismo.</p>
         </section>
         
         <!-- Ejercicios Interactivos -->
@@ -51,13 +146,17 @@
             <h2 class="text-2xl font-semibold">📝 Ejercicios Interactivos</h2>
             <p class="mt-2">Prueba tus conocimientos resolviendo estos ejercicios:</p>
             <div class="mt-4">
-                <p><b>Ejercicio 1:</b> Crea una clase llamada <code>Persona</code> con un constructor que reciba un nombre.</p>
+                <p><b>Ejercicio 1:</b> Crea una clase llamada <code>Persona</code> que tenga un constructor que reciba un nombre. La clase debería almacenar el nombre como una propiedad.</p>
+                <p>Para crear una clase en JavaScript, utiliza la palabra clave <code>class</code> seguida del nombre de la clase. Dentro de la clase, agrega un constructor para inicializar las propiedades.</p>
+                
                 <textarea id="ejercicio1" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
                 <button onclick="verificarEjercicio1()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
                 <p id="resultado1" class="mt-2"></p>
             </div>
             <div class="mt-4">
-                <p><b>Ejercicio 2:</b> Crea una clase llamada <code>Estudiante</code> que herede de <code>Persona</code> y agregue una propiedad de edad.</p>
+                <p><b>Ejercicio 2:</b> Crea una clase llamada <code>Estudiante</code> que herede de <code>Persona</code> y agregue una propiedad llamada <code>edad</code>.</p>
+                <p>Para hacer que <code>Estudiante</code> herede de <code>Persona</code>, usa la palabra clave <code>extends</code>. Aquí tienes un ejemplo:</p>
+                
                 <textarea id="ejercicio2" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
                 <button onclick="verificarEjercicio2()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
                 <p id="resultado2" class="mt-2"></p>
@@ -70,6 +169,7 @@
             <ul class="list-disc list-inside mt-2">
                 <li><a href="https://www.edx.org/es/aprende/programacion-orientada-a-objetos" class="underline" target="_blank">Curso sobre Clases y Objetos</a></li>
                 <li><a href="https://www.youtube.com/watch?v=yZyigBseFLE" class="underline" target="_blank">Video POO para principiantes</a></li>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/yZyigBseFLE?si=Sy2rWzu7PaQtHu3a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <li><a href="https://www.ibm.com/docs/es/spss-modeler/saas?topic=language-object-oriented-programming" class="underline" target="_blank">Conceptos de POO IBM</a></li>
             </ul>
         </section>

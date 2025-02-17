@@ -24,12 +24,44 @@
         <section class="bg-[#e9d8a6] p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-semibold">🔹 Conceptos Básicos</h2>
             <p class="mt-2">La programación estructurada es un paradigma de programación basado en la división del código en estructuras bien definidas. Los conceptos clave incluyen:</p>
+            
+            <h3 class="text-xl font-semibold mt-4">📌 Variables</h3>
+            <p>Las variables son espacios de memoria donde se almacenan datos. Se pueden modificar durante la ejecución del programa. Ejemplo en JavaScript:</p>
+            <pre class="bg-gray-200 p-2 rounded">let nombre = "Juan";</pre>
+            
+            <h3 class="text-xl font-semibold mt-4">📌 Tipos de Datos</h3>
+            <p>Los datos pueden ser de distintos tipos, como:</p>
             <ul class="list-disc list-inside mt-2">
-                <li><b>Variables:</b> Espacios en la memoria que almacenan datos.</li>
-                <li><b>Condicionales:</b> Permiten ejecutar código en función de condiciones (if-else).</li>
-                <li><b>Bucles:</b> Permiten repetir un bloque de código (for, while).</li>
-                <li><b>Funciones:</b> Bloques de código reutilizables que realizan una tarea específica.</li>
+                <li><b>Números:</b> Enteros (10), Decimales (10.5)</li>
+                <li><b>Cadenas de texto:</b> "Hola, mundo"</li>
+                <li><b>Booleanos:</b> true o false</li>
+                <li><b>Arreglos:</b> [1, 2, 3, 4]</li>
+                <li><b>Objetos:</b> { nombre: "Ana", edad: 25 }</li>
             </ul>
+            
+            <h3 class="text-xl font-semibold mt-4">📌 Sentencias de Control</h3>
+            <p>Permiten que un programa tome decisiones o repita acciones.</p>
+            
+            <h4 class="text-lg font-semibold mt-2">➤ Condicionales</h4>
+            <p>Ejecutan código en función de una condición.</p>
+            <pre class="bg-gray-200 p-2 rounded">if (edad >= 18) {
+    console.log("Mayor de edad");
+} else {
+    console.log("Menor de edad");
+}</pre>
+            
+            <h4 class="text-lg font-semibold mt-2">➤ Bucles</h4>
+            <p>Permiten ejecutar una acción varias veces.</p>
+            <pre class="bg-gray-200 p-2 rounded">for (let i = 0; i < 5; i++) {
+    console.log("Iteración: " + i);
+}</pre>
+            
+            <h4 class="text-lg font-semibold mt-2">➤ Funciones</h4>
+            <p>Permiten reutilizar código para evitar la repetición.</p>
+            <pre class="bg-gray-200 p-2 rounded">function saludar(nombre) {
+    return "Hola, " + nombre;
+}
+console.log(saludar("Carlos"));</pre>
         </section>
         
         <!-- Ejercicios Interactivos -->
@@ -39,14 +71,14 @@
             
             <div class="mt-4">
                 <p><b>Ejercicio 1:</b> Declara una variable llamada <code>x</code> y asígnale el valor 10.</p>
-                <textarea id="ejercicio1" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <textarea id="ejercicio1" class="w-full p-2 rounded text-black" rows="3" placeholder="Ejemplo: let x = 10;"></textarea>
                 <button onclick="verificarEjercicio1()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
                 <p id="resultado1" class="mt-2"></p>
             </div>
             
             <div class="mt-4">
                 <p><b>Ejercicio 2:</b> Escribe un condicional que imprima "Mayor de edad" si la variable <code>edad</code> es mayor o igual a 18.</p>
-                <textarea id="ejercicio2" class="w-full p-2 rounded text-black" rows="3" placeholder="Escribe tu código aquí..."></textarea>
+                <textarea id="ejercicio2" class="w-full p-2 rounded text-black" rows="3" placeholder="Ejemplo: if (edad >= 18) { console.log('Mayor de edad'); }"></textarea>
                 <button onclick="verificarEjercicio2()" class="bg-white text-[#0a9396] px-4 py-2 mt-2 rounded-lg shadow-md">Verificar</button>
                 <p id="resultado2" class="mt-2"></p>
             </div>
@@ -57,6 +89,7 @@
             <h2 class="text-2xl font-semibold">📚 Recursos y Tutoriales</h2>
             <ul class="list-disc list-inside mt-2">
                 <li><a href="https://www.youtube.com/watch?v=O89aX0WoFng" class="underline" target="_blank">Tutorial sobre Variables</a></li>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/O89aX0WoFng?si=a1mRiYYnWJd4Kl9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <li><a href="https://codelearn.es/blog/condicionales-bucles-variables-y-funciones/" class="underline" target="_blank">Curso de Condicionales y Bucles</a></li>
                 <li><a href="http://progra.usm.cl/apunte/materia/funciones.html" class="underline" target="_blank">Funciones en Programación</a></li>
             </ul>
@@ -68,29 +101,5 @@
         </section>
         
     </main>
-    
-    <script>
-        function verificarEjercicio1() {
-            let respuesta = document.getElementById("ejercicio1").value.trim();
-            if (respuesta.includes("x = 10")) {
-                document.getElementById("resultado1").innerText = "✅ Correcto!";
-                document.getElementById("resultado1").classList.add("text-green-500");
-            } else {
-                document.getElementById("resultado1").innerText = "❌ Inténtalo de nuevo.";
-                document.getElementById("resultado1").classList.add("text-red-500");
-            }
-        }
-        
-        function verificarEjercicio2() {
-            let respuesta = document.getElementById("ejercicio2").value.trim();
-            if (respuesta.includes("if") && respuesta.includes("edad >= 18") && respuesta.includes("console.log(\"Mayor de edad\")")) {
-                document.getElementById("resultado2").innerText = "✅ Correcto!";
-                document.getElementById("resultado2").classList.add("text-green-500");
-            } else {
-                document.getElementById("resultado2").innerText = "❌ Inténtalo de nuevo.";
-                document.getElementById("resultado2").classList.add("text-red-500");
-            }
-        }
-    </script>
 </body>
 </html>
